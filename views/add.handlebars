@@ -1,0 +1,71 @@
+<section id="add" class="container">
+  <div class="form-wrap">
+    <h1>Add a Work</h1>
+    <p>Your contact email will be shared with registered users to apply to your
+      work</p>
+    {{#each errors}}
+      <div class="error">
+        <p>{{text}}</p>
+      </div>
+    {{/each}}
+    <form action="/works/add" method="POST">
+      <div class="input-group">
+        <label for="title">Work Title</label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          class="input-box"
+          placeholder="Front End Developer"
+          maxlength="100"
+          value="{{title}}"
+        />
+      </div>
+      <div class="input-group">
+        <label for="technologies">Technologies Needed</label>
+        <input
+          type="text"
+          name="technologies"
+          id="technologies"
+          class="input-box"
+          placeholder="React Js, Tailwind Css"
+          maxlength="100"
+          value="{{technologies}}"
+        />
+      </div>
+      <div class="input-group">
+        <label for="budget">Budget (Leave blank for unknown)</label>
+        <input
+          type="number"
+          name="budget"
+          id="budget"
+          class="input-box"
+          placeholder="5000"
+          value="{{budget}}"
+        />
+      </div>
+      <div class="input-group">
+        <label for="description">Work Description</label>
+        <textarea
+          name="description"
+          id="description"
+          class="input-box"
+          placeholder="Describe the details of the work"
+          rows="10"
+        >{{description}}</textarea>
+      </div>
+      <div class="input-group">
+        <label for="contact_email">Contact Email</label>
+        <input
+          type="email"
+          name="contact_email"
+          id="contactemail"
+          class="input-box"
+          placeholder="your.email@mail.com"
+          value="{{contact_email}}"
+        />
+      </div>
+      <input type="submit" value="Add Work" class="btn btn-reverse" />
+    </form>
+  </div>
+</section>

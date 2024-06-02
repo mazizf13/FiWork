@@ -1,0 +1,19 @@
+<section id="works" class="container">
+  <h1>All Works</h1>
+
+  {{#each works}}
+    <div class="work">
+      <h3>{{title}}</h3>
+      <p>{{description}}</p>
+      <ul>
+        <li>Budget: {{budget}}</li>
+        <li><a href="mailto:{{contact_email}}" class="btn btn-reverse">Apply Now</a></li>
+      </ul>
+      <div class="tech">
+        <small>Technologies Needed: <span>{{technologies}}</span></small>
+      </div>
+    </div>
+  {{else}}
+    <p>No works available</p>
+  {{/each}}
+</section>
