@@ -16,7 +16,7 @@ git clone https://github.com/mazizf13/FinWork.git
 ```
 
 ```
-cd FiWork
+cd FinWork
 ```
 ```
 npm install
