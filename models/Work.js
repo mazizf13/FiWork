@@ -19,4 +19,8 @@ const Work = db.define("work", {
   },
 });
 
+Work.sync().then(() => {
+  console.log("table created");
+});
+
 module.exports = Work;

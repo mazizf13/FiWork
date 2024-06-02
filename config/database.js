@@ -1,9 +1,10 @@
 const Sequelize = require("sequelize");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 module.exports = new Sequelize("finwork", "postgres", "root", {
-  host: "localhost",
   dialect: "postgres",
-
   pool: {
     max: 5,
     min: 0,

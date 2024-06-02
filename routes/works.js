@@ -13,7 +13,7 @@ router.get("/", (req, res) =>
         works,
       })
     )
-    .catch((err) => console.log(err))
+    .catch((err) => res.render("error", { error: err }))
 );
 
 // Display add work form
@@ -64,7 +64,7 @@ router.post("/add", (req, res) => {
     }
 
     // Make lowercase and remove space after comma
-    technologies = technologies.toLowerCase().replace(/, /g, ",");
+    technologies = technologies.toLowerCase().replace(/,[ ]+/g, ", ");
 
     // Insert into table
     Work.create({
@@ -75,7 +75,7 @@ router.post("/add", (req, res) => {
       contact_email,
     })
       .then((work) => res.redirect("/works"))
-      .catch((err) => console.log(err));
+      .catch((err) => res.render("error", { error: err.message }));
   }
 });
 
@@ -88,7 +88,7 @@ router.get("/search", (req, res) => {
 
   Work.findAll({ where: { technologies: { [Op.like]: "%" + term + "%" } } })
     .then((works) => res.render("works", { works }))
-    .catch((err) => console.log(err));
+    .catch((err) => res.render("error", { error: err }));
 });
 
 module.exports = router;
