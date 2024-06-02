@@ -1,6 +1,6 @@
+require("dotenv").config();
 const express = require("express");
 const exphbs = require("express-handlebars");
-const bodyParser = require("body-parser");
 const path = require("path");
 
 const db = require("./config/database");
@@ -22,7 +22,7 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -32,4 +32,4 @@ app.use("/works", require("./routes/works"));
 
 const PORT = process.env.PORT || 3500;
 
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
